@@ -1,17 +1,20 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import LoginForm from "./LoginForm";
+import AuthForm from "./AuthForm";
 
 function App() {
   return (
-    <div className="card">
-      <div className="card-header">
-        <h2 className="text-center">Welcome to Java Learning Center</h2>
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+
+      <div className="text-center">
+
+        <h1 className="text-4xl font-bold mb-8">
+          Welcome to Our Blog!
+        </h1>
+
+        <AuthForm />
+
       </div>
 
-      <div className="card-body">
-        <LoginForm />
-      </div>
     </div>
   );
 }
