@@ -1,27 +1,25 @@
-import TextInputDemo from "./demos/TextInputDemo";
-import TextAreaDemo from "./demos/TextAreaDemo";
-import SelectBoxDemo from "./demos/SelectBoxDemo";
-import RadioButtonDemo from "./demos/RadioButtonDemo";
-import CheckBoxDemo from "./demos/CheckBoxDemo";
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import JLCHeader from "./JLCHeader";
+import JLCBody from "./JLCBody";
+import JLCFooter from "./JLCFooter";
 
-const App = () => {
+function App() {
   return (
-    <div className="min-h-screen bg-gray-100 flex justify-center">
-      <div className="bg-white shadow-lg rounded-lg w-full max-w-2xl p-6">
+    <BrowserRouter>
+      <div className="min-h-screen flex flex-col bg-gray-100">
 
-        <h2 className="text-center text-2xl font-bold mb-6">
-          Welcome to Java Learning Center
-        </h2>
+        <JLCHeader />
 
-        <TextInputDemo />
-        <TextAreaDemo />
-        <SelectBoxDemo />
-        <RadioButtonDemo />
-        <CheckBoxDemo />
+        <div className="flex-grow p-6">
+          <JLCBody />
+        </div>
+
+        <JLCFooter />
 
       </div>
-    </div>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;
