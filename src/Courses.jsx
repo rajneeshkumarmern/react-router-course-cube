@@ -1,19 +1,26 @@
-import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import CourseList from "./CourseList";
+import React from "react";
 
 function Courses() {
 
-  const location = useLocation();
+  return (
+    <div>
 
-  useEffect(() => {
-    console.log("Courses - DidMount");
-    console.log("Hash:", location.hash);
-    console.log("Path:", location.pathname);
-    console.log("Search:", location.search);
-  }, []);
+      <h2 className="text-2xl font-bold mb-4">
+        Courses
+      </h2>
 
-  return <CourseList />;
+      <div className="space-y-2">
+
+        <h3 className="text-lg">React Course</h3>
+        <h3 className="text-lg">Angular Course</h3>
+        <h3 className="text-lg">Spring Boot Course</h3>
+        <h3 className="text-lg">Spring MicroServices Course</h3>
+        <h3 className="text-lg">Java Full Stack Course</h3>
+
+      </div>
+
+    </div>
+  );
 }
 
 export default Courses;

@@ -1,40 +1,29 @@
-import React, { useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { Suspense, lazy } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Login from "./Login";
 
-import Home from "./Home";
-import Courses from "./Courses";
-import About from "./About";
-import Contact from "./Contact";
-import MyCourseInfo from "./MyCourseInfo";
+const Courses = lazy(() => import("./Courses"));
 
-function JLCBody(props) {
-
-  useEffect(() => {
-    console.log("JLCBody - DidMount - ", props);
-
-    return () => {
-      console.log("JLCBody - WillUnmount - ", props);
-    };
-  }, []);
+function JLCBody() {
 
   return (
-    <div className="bg-white p-6 rounded shadow">
+
+    <Suspense fallback={<div className="text-center">Loading...</div>}>
 
       <Routes>
 
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Login />} />
 
         <Route path="/courses" element={<Courses />} />
 
-        <Route path="/mycourses/:couId/:couName" element={<MyCourseInfo />} />
+        <Route path="/login" element={<Navigate to="/" />} />
 
-        <Route path="/about" element={<About />} />
-
-        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<Navigate to="/" />} />
 
       </Routes>
 
-    </div>
+    </Suspense>
+
   );
 }
 

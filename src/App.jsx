@@ -1,18 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import JLCHeader from "./JLCHeader";
 import JLCBody from "./JLCBody";
 
-function App(props) {
-
-  useEffect(() => {
-    console.log("App - DidMount - ", props);
-
-    return () => {
-      console.log("App - WillUnmount - ", props);
-    };
-  }, []);
-
+function App() {
   return (
     <BrowserRouter>
 
@@ -20,7 +11,7 @@ function App(props) {
 
         <JLCHeader />
 
-        <div className="p-6">
+        <div className="max-w-3xl mx-auto mt-8 bg-white shadow rounded p-6">
           <JLCBody />
         </div>
 
