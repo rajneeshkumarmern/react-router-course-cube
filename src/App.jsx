@@ -1,23 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import JLCHeader from "./JLCHeader";
 import JLCBody from "./JLCBody";
-import JLCFooter from "./JLCFooter";
 
-function App() {
+function App(props) {
+
+  useEffect(() => {
+    console.log("App - DidMount - ", props);
+
+    return () => {
+      console.log("App - WillUnmount - ", props);
+    };
+  }, []);
+
   return (
     <BrowserRouter>
-      <div className="min-h-screen flex flex-col bg-gray-100">
+
+      <div className="min-h-screen bg-gray-100">
 
         <JLCHeader />
 
-        <div className="flex-grow p-6">
+        <div className="p-6">
           <JLCBody />
         </div>
 
-        <JLCFooter />
-
       </div>
+
     </BrowserRouter>
   );
 }

@@ -1,46 +1,53 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
-const JLCHeader = () => {
+function JLCHeader(props) {
+
+  useEffect(() => {
+    console.log("JLCHeader - DidMount - ", props);
+
+    return () => {
+      console.log("JLCHeader - WillUnmount - ", props);
+    };
+  }, []);
+
   return (
-    <header className="bg-blue-600 text-white px-10 py-4 flex justify-between items-center">
+    <div className="bg-blue-600 text-white p-4">
 
-      {/* Logo */}
-      <h1 className="text-2xl font-bold" style={{marginRight:"20px"}}>
+      <h1 className="text-2xl font-bold mb-4">
         Welcome to CourseCube!!!
       </h1>
 
-      {/* Navigation */}
-      <nav>
-        <ul className="flex gap-8 text-lg font-medium">
-          <li style={{marginRight:"20px", display:"inline"}}>
-            <Link to="/" className="hover:text-gray-200">
-              Home
-            </Link>
-          </li>
+      <ul className="flex gap-6 text-lg">
 
-          <li style={{marginRight:"20px", display:"inline"}}>
-            <Link to="/courses" className="hover:text-gray-200">
-              Courses
-            </Link>
-          </li>
+        <li>
+          <NavLink to="/" className="hover:underline">
+            Home
+          </NavLink>
+        </li>
 
-          <li style={{marginRight:"20px", display:"inline"}}>
-            <Link to="/about" className="hover:text-gray-200">
-              About Us
-            </Link>
-          </li>
+        <li>
+          <NavLink to="/courses?name=JLC#Hello" className="hover:underline">
+            Courses
+          </NavLink>
+        </li>
 
-          <li style={{marginRight:"20px", display:"inline"}}>
-            <Link to="/contact" className="hover:text-gray-200">
-              Contact Us
-            </Link>
-          </li>
-        </ul>
-      </nav>
+        <li>
+          <NavLink to="/about" className="hover:underline">
+            About Us
+          </NavLink>
+        </li>
 
-    </header>
+        <li>
+          <NavLink to="/contact" className="hover:underline">
+            Contact Us
+          </NavLink>
+        </li>
+
+      </ul>
+
+    </div>
   );
-};
+}
 
 export default JLCHeader;

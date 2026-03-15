@@ -1,35 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
-const JLCBody = () => {
+import Home from "./Home";
+import Courses from "./Courses";
+import About from "./About";
+import Contact from "./Contact";
+import MyCourseInfo from "./MyCourseInfo";
+
+function JLCBody(props) {
+
+  useEffect(() => {
+    console.log("JLCBody - DidMount - ", props);
+
+    return () => {
+      console.log("JLCBody - WillUnmount - ", props);
+    };
+  }, []);
+
   return (
-    <div className="container mx-auto text-center">
+    <div className="bg-white p-6 rounded shadow">
 
       <Routes>
 
-        <Route path="/" element={
-          <>
-            <h1 className="text-3xl font-bold">Home Page Displays -1</h1>
-            <h1 className="text-2xl">Home Page Displays -2</h1>
-          </>
-        } />
+        <Route path="/" element={<Home />} />
 
-        <Route path="/courses" element={
-          <h1 className="text-3xl font-bold">Courses Page Here</h1>
-        } />
+        <Route path="/courses" element={<Courses />} />
 
-        <Route path="/about" element={
-          <h1 className="text-3xl font-bold">About Page Here</h1>
-        } />
+        <Route path="/mycourses/:couId/:couName" element={<MyCourseInfo />} />
 
-        <Route path="/contact" element={
-          <h1 className="text-3xl font-bold">Contact Page Here</h1>
-        } />
+        <Route path="/about" element={<About />} />
+
+        <Route path="/contact" element={<Contact />} />
 
       </Routes>
 
     </div>
   );
-};
+}
 
 export default JLCBody;
