@@ -1,20 +1,23 @@
-import React from "react";
-import AddBook from "./books/AddBook";
+import TextInputDemo from "./demos/TextInputDemo";
+import TextAreaDemo from "./demos/TextAreaDemo";
+import SelectBoxDemo from "./demos/SelectBoxDemo";
+import RadioButtonDemo from "./demos/RadioButtonDemo";
+import CheckBoxDemo from "./demos/CheckBoxDemo";
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-gray-100 flex justify-center items-start pt-10">
-      <div className="bg-white shadow-lg rounded-lg w-full max-w-2xl">
+    <div className="min-h-screen bg-gray-100 flex justify-center">
+      <div className="bg-white shadow-lg rounded-lg w-full max-w-2xl p-6">
 
-        <div className="bg-blue-600 text-white p-4 rounded-t-lg text-center">
-          <h2 className="text-xl font-semibold">
-            Welcome to the Book Management System
-          </h2>
-        </div>
+        <h2 className="text-center text-2xl font-bold mb-6">
+          Welcome to Java Learning Center
+        </h2>
 
-        <div className="p-6">
-          <AddBook />
-        </div>
+        <TextInputDemo />
+        <TextAreaDemo />
+        <SelectBoxDemo />
+        <RadioButtonDemo />
+        <CheckBoxDemo />
 
       </div>
     </div>
