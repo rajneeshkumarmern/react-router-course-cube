@@ -1,22 +1,24 @@
 import React from "react";
-import LoginForm from "./LoginForm";
+import AddBook from "./books/AddBook";
 
-function App() {
+const App = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen bg-gray-100 flex justify-center items-start pt-10">
+      <div className="bg-white shadow-lg rounded-lg w-full max-w-2xl">
 
-      <div className="bg-white shadow-lg rounded-lg p-8 w-96">
+        <div className="bg-blue-600 text-white p-4 rounded-t-lg text-center">
+          <h2 className="text-xl font-semibold">
+            Welcome to the Book Management System
+          </h2>
+        </div>
 
-        <h2 className="text-2xl font-bold text-center mb-6">
-          Welcome to Java Learning Center
-        </h2>
-
-        <LoginForm />
+        <div className="p-6">
+          <AddBook />
+        </div>
 
       </div>
-
     </div>
   );
-}
+};
 
 export default App;
